@@ -1,4 +1,3 @@
-import logo from './logo.svg'
 import './App.css'
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -11,8 +10,8 @@ function App () {
     <Router>
       <Switch>
         <Route exact path="/" component={ComponentA} />
-        <Route exact pash="/componentb" component={ComponentB} />
-      <Route exact pash="/componentc" component={ComponentC} />
+        <Route exact path="/componentb" component={ComponentB} />
+        <Route exact path="/componentc" component={ComponentC} />
       </Switch>
   </Router>
   );
