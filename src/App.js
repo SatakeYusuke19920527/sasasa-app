@@ -1,9 +1,9 @@
-import './App.css'
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ComponentA from './ComponentA';
-import ComponentB from './ComponentB';
-import ComponentC from './ComponentC';
+import ComponentA from './components/ComponentA';
+import ComponentB from './components/ComponentB';
+import ComponentC from './components/ComponentC';
 
 function App () {
   return (
