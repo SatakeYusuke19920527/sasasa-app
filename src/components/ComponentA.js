@@ -11,7 +11,7 @@ const ComponentA = () => {
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
   
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+    axios.get('https://jsonplaceholder.typicode.com/comments')
       .then(res => {
         console.log(res, 'res check')
 setData(res.data)
