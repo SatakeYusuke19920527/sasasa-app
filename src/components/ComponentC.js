@@ -7,17 +7,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const ComponentC = () => {
   const [count, setCount] = useState(0);
   const [data,setData] = useState([])
-  const handleClick = () => {}
   
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
+  }, []);
   
-    axios.get('https://jsonplaceholder.typicode.com/comments')
+  const handleClick = () => {
+        axios.get('https://jsonplaceholder.typicode.com/comments')
       .then(res => {
         console.log(res, 'res check')
-setData(res.data)
+        setData(res.data)
+    
       })
-  }, []);
+  }
+
 
 console.log(data)
 
@@ -42,9 +45,9 @@ console.log(data)
         </thead>
         <tbody>
           {
-            data.map(d => {
+            data.map((d,index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td>{d.userId}</td>
                   <td>{d.id}</td>
                   <td>{d.title}</td>
