@@ -1,66 +1,47 @@
-import React, { useState, useEffect} from 'react'
-import { Table, Button } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useReducer } from 'react'
+import { Link } from 'react-router-dom'
+import reducer from '../Reducer/index'
+
+const initialCount = {
+  count: 0
+};
 
 const ComponentC = () => {
-  const [count, setCount] = useState(0);
-  const [data,setData] = useState([])
-  
-  useEffect(() => {
-    console.log('useEffect が呼び出されました。');
-  }, []);
-  
-  const handleClick = () => {
-        axios.get('https://jsonplaceholder.typicode.com/comments')
-      .then(res => {
-        console.log(res, 'res check')
-        setData(res.data)
-    
-      })
-  }
+  const [ state, dispatch ] = useReducer(reducer, initialCount);
 
+  const increment = () => {
+    console.log('increment');
+    dispatch({
+      type: 'INCREMENT'
+    });
+  };
 
-console.log(data)
+   const decrement = () => {
+    console.log('decrement');
+    dispatch({
+      type: 'DECREMENT'
+    });
+   };
+  
+  
+   const nacrement = () => {
+    console.log('nacrement');
+    dispatch({
+      type: 'NACREMENT'
+    });
+  };
 
   return (
     <div>
       <div>ComponentC</div>
       <Link to="/">ComponentAへ移動</Link>
-      <Link to="/componentb" >ComponentsBへ移動</Link>
-
-　    <Button onClick={handleClick}>
-        あああ
-      </Button>
-    
-       <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>userID</th>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Body</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            data.map((d,index) => {
-              return (
-                <tr key={index}>
-                  <td>{d.userId}</td>
-                  <td>{d.id}</td>
-                  <td>{d.title}</td>
-                <td>{d.body}</td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </Table>
-
+      <Link to="/componentb" >ComponentBへ移動</Link>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={nacrement}>り</button>
+      <h1>{state.count}</h1>
     </div>
-  )
-}
+  );
+};
 
 export default ComponentC;
