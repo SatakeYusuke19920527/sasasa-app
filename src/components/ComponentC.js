@@ -23,11 +23,17 @@ const ComponentC = () => {
     });
    };
   
-  
-   const nacrement = () => {
-    console.log('nacrement');
+   const reset = () => {
+    console.log('reset');
     dispatch({
-      type: 'NACREMENT'
+      type: 'RESET'
+    });
+  };
+
+  const secrement = () => {
+    console.log('secrement');
+    dispatch({
+      type: 'SECREMENT'
     });
   };
 
@@ -38,7 +44,8 @@ const ComponentC = () => {
       <Link to="/componentb" >ComponentBへ移動</Link>
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
-      <button onClick={nacrement}>り</button>
+      <button onClick={reset}>り</button>
+       <button onClick={secrement}>り</button>
       <h1>{state.count}</h1>
     </div>
   );

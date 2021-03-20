@@ -1,11 +1,19 @@
+import { INCREMENT, DECREMENT, RESET, ADD_EVENT } from '../actions/index';
+
 const reducer = (state = [], action) => {
   switch(action.type) {
-    case 'INCREMENT':
+    case INCREMENT:
       return { ...state, count: state.count + 1 };
-    case 'DECREMENT':
+    case DECREMENT:
       return { ...state, count: state.count - 1 };
-      case 'NACREMENT':
+    case RESET:
       return { ...state, count: 0 };
+    // case SECREMENT:
+    //   return { ...state, count: state.count - 1 };
+    case ADD_EVENT:
+      const event = { title: action.title, body: action.body };
+      const id = state.length + 1;
+      return [ ...state, { id, ...event } ];
     default:
       return state;
 }
