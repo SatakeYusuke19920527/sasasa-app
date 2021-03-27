@@ -1,6 +1,6 @@
 import React,{useState,useReducer} from 'react'
 import { Link } from 'react-router-dom'
-import { ADD_EVENT } from '../actions/index';
+import { ADD_EVENT, DELETE_ALL_EVENT } from '../actions/index';
 import reducer from '../Reducer/index'
 import {Table, Form, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,10 +17,9 @@ const ComponentB = () => {
       title,
       body
     });
-  setTitle('');
+    setTitle('');
   setBody('');
 };
-
 
   return (
     <div>
@@ -48,7 +47,7 @@ const ComponentB = () => {
         <Button variant="primary" onClick={handleClick}>
           イベント作成
         </Button>
-        <Button variant="danger"　delTodo  onClick={handleClick}>
+        <Button variant="danger"　delTodo onClick={handleClick}>
           イベント全削除
         </Button>
       </Form>
@@ -80,6 +79,7 @@ const ComponentB = () => {
     </Table>
     </div>
 )
-  }
+  
+}
 
 export default ComponentB;
