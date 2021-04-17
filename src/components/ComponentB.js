@@ -24,7 +24,7 @@ const ComponentB = () => {
     setComment('');
   };
   
-      const handleClick1 = (e) => {
+  const handleClick1 = (e) => {
     e.preventDefault();
     dispatch({
       type: DELETE_ALL_EVENT,
@@ -35,26 +35,13 @@ const ComponentB = () => {
     setTitle('');
     setBody('');
     setComment('');
-      };
-  
-        const handleClick2 = (e) => {
-    e.preventDefault();
-    dispatch({
-      type: ALL_EVENT,
-      title,
-      body,
-      comment
-    });
-      };
-  
-  
+  };
   
   return (
     <div>
     <div>ComponentB</div>
       <Link to="/">ComponentAへ移動</Link>
       <Link to="/componentc" >ComponentCへ移動</Link>
-    
     <Form>
         <Form.Group controlId="forBasicPassword">
           <Form.Label>Title</Form.Label>
@@ -100,6 +87,13 @@ const ComponentB = () => {
         </thead>
         <tbody>
           {state.map((data, index) => {
+            const handleClick2 = (e) => {
+              e.preventDefault();
+              dispatch({
+                type: ALL_EVENT,
+                id: data.id
+              });
+            };
             return (
               <tr key={index}>
                 <td>{data.id}</td>
