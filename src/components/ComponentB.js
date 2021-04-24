@@ -42,7 +42,8 @@ const ComponentB = () => {
     <div>ComponentB</div>
       <Link to="/">ComponentAへ移動</Link>
       <Link to="/componentc" >ComponentCへ移動</Link>
-    <Form>
+      <Link to="/componentf" >ComponentFへ移動</Link>
+      <Form>
         <Form.Group controlId="forBasicPassword">
           <Form.Label>Title</Form.Label>
           <Form.Control
