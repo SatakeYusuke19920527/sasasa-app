@@ -1,7 +1,9 @@
 import React, { createContext, useReducer } from 'react';
 import reducer from '../Reducer/index';
+
 const initialState = {
-  count: 0
+  count: 0,
+  data:[]
 }; 
 
 export const Store = createContext({
@@ -15,4 +17,6 @@ const StoreProvider = ({ children }) => {
   </Store.Provider>;
 };
  
+
+
 export default StoreProvider;

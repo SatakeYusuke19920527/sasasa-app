@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Store } from '../store/index';
-import { INCREMENT, DECREMENT, RESET, THREE } from '../actions/index';
+import { Table } from 'react-bootstrap'
+import { INCREMENT, DECREMENT, RESET, THREE, SA } from '../actions/index';
 
 const ComponentE = () => {
   const { globalState, setGlobalState } = useContext(Store);
@@ -24,6 +25,13 @@ const ComponentE = () => {
       type: THREE
     });
     };
+  
+    //     const = () => {
+    // setGlobalState({
+    //   type: SA
+    // });
+    // };
+  
   console.log(globalState);
 
   return (
@@ -34,7 +42,10 @@ const ComponentE = () => {
     <button onClick={handleClick1}>-1</button>
     <button onClick={handleClick2}>0</button>
    <button onClick={handleClick3}>3</button>
-    {globalState.count}
+      <Table striped bordered hover>
+        
+    </Table>
+      {globalState.count}
     </div>
   );
 };

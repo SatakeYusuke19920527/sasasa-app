@@ -1,23 +1,29 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Table } from 'react-bootstrap'
+import { Store } from '../store/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SA } from '../actions/index';
 
 const ComponentA = () => {
+  const { globalState, setGlobalState } = useContext(Store);
   const [count, setCount] = useState(0);
   const [data,setData] = useState([])
 
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
-  
-    axios.get('https://jsonplaceholder.typicode.com/comments')
-      .then(res => {
-        console.log(res, 'res check')
-setData(res.data)
-      })
-  }, []);
+  },[]);
 
+  axios.get('https://jsonplaceholder.typicode.com/todos')
+    .then(res => {
+      console.log(res, 'res check')
+      setData(res.data)
+      setGlobalState({
+        type: SA,
+        data: res.data
+      });
+    });
   console.log(data)
   
   return (
