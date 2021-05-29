@@ -32,8 +32,8 @@ const reducer = (state = [], action) => {
         });
       return newState
     case SA:
-      console.log(action.res)
-      return [];
+      console.log(action.data, 'check')
+      return { ...state, data: action.data };
     default:
       return state;
   };

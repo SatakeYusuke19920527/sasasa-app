@@ -13,18 +13,20 @@ const ComponentA = () => {
 
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
-  },[]);
+    getData();
+  },[])
 
-  axios.get('https://jsonplaceholder.typicode.com/todos')
-    .then(res => {
-      console.log(res, 'res check')
-      setData(res.data)
+  const getData = async () => {
+    await axios.get('https://jsonplaceholder.typicode.com/todos').then(res => {
+      console.log(res.data)
       setGlobalState({
         type: SA,
         data: res.data
       });
-    });
-  console.log(data)
+    })
+  }
+  
+  console.log(globalState)
   
   return (
     <div>

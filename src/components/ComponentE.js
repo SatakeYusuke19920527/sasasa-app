@@ -10,44 +10,65 @@ const ComponentE = () => {
       type: INCREMENT
     });
   };
-   const handleClick1 = () => {
+  const handleClick1 = () => {
     setGlobalState({
       type: DECREMENT
     });
-   };
-    const handleClick2 = () => {
+  };
+  const handleClick2 = () => {
     setGlobalState({
       type: RESET
     });
-    };
-      const handleClick3 = () => {
+  };
+  const handleClick3 = () => {
     setGlobalState({
       type: THREE
     });
-    };
+  };
   
-    //     const = () => {
-    // setGlobalState({
-    //   type: SA
-    // });
-    // };
+  //     const = () => {
+  // setGlobalState({
+  //   type: SA
+  // });
+  // };
   
-  console.log(globalState);
+  console.log(globalState.data, 'componentE');
 
   return (
     <div>
       <div>ComponentE</div>
       <h1>ComponentE.js</h1>
       <button onClick={handleClick}>+1</button>
-    <button onClick={handleClick1}>-1</button>
-    <button onClick={handleClick2}>0</button>
-   <button onClick={handleClick3}>3</button>
+      <button onClick={handleClick1}>-1</button>
+      <button onClick={handleClick2}>0</button>
+      <button onClick={handleClick3}>3</button>
       <Table striped bordered hover>
-        
-    </Table>
-      {globalState.count}
+        <thead>
+          <tr>
+            <th>userID</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Completed</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            globalState.data.map(d => {
+              return (
+                <tr>
+                  <td>{d.userId}</td>
+                  <td>{d.id}</td>
+                  <td>{d.title}</td>
+                  <td>{d.completed}</td>
+                </tr>
+              )
+            }
+            )   
+          }
+        </tbody>
+      </Table>
     </div>
-  );
+ );
 };
 
 export default ComponentE;
